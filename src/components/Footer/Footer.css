@@ -1,0 +1,134 @@
+footer {
+    margin: 0 auto;
+    margin-top: 7em;
+    padding: 0 5em;
+    -webkit-box-flex: 1;
+    max-width: 122.2em;
+}
+
+.div_deliver_x_dowload {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6.7em;
+}
+
+.logo_deliver_x_with_description {
+    max-width: 45em;
+}
+
+.logo_in_deliver_x {
+    max-width: 20em;
+    height: 6em;
+    margin-bottom: 2.8em;
+}
+
+.discript_deliver_x {
+    color: var(--text-gray-color);
+    font-size: 1.2em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.006px;
+    margin-top: 2.5em;
+}
+
+.rectangle_with_buttons_in_deliver_x {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+    width: 485px;
+}
+
+div.horisontal_line {
+    background: #CACACA;
+    height: 1px;
+}
+
+.main_div_footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10em 0;
+}
+
+h4 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.h4_item_in_footer {
+    margin-bottom: 1.8em;
+}
+
+.item_in_footer {
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.998px;
+}
+
+.link_item_in_footer {
+    color: var(--text-gray-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.available_in_footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.one_icon_div_in_footer{
+    display: flex;
+    align-items: center;
+}
+
+.photo_icon_city_in_footer {
+    margin-right: 2em;
+}
+
+.icon_names_in_footer {
+    color: var(--text-color);
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23.994px;
+    width: 10em;
+}
+
+.icons_available_in_1{
+    display: flex;
+}
+
+.icons_available_in_2{
+    display: flex;
+}
+
+.black_name_in_footer {
+    color: var(--text-gray-color);
+    text-align: center;
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.006px;
+}
+
+.end_info {
+    text-align: center;
+    margin-top: 2.7em;
+}
+
+.red_name_in_footer {
+    color: var(--text-red-color);
+    text-align: center;
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.006px;
+    margin: 0 .5em;
+}

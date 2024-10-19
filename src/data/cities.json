@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Лос-Анджелес, Калифорния",
+        "img": "cities/Los_Angeles.svg"
+    },
+    {
+        "id": 2,
+        "title": "Нью-Йорк, Нью-Йорк",
+        "img": "cities/New_York.svg"
+    },
+    {
+        "id": 3,
+        "title": "Сан-Франциско, Калифорния",
+        "img": "cities/San_Francisco.svg"
+    }, 
+    {
+        "id": 4,
+        "title": "Сиэтл, Вашингтон",
+        "img": "cities/Seattle.svg"
+    }
+]
