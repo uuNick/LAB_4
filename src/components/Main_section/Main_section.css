@@ -1,0 +1,86 @@
+.section_about {
+    margin-top: 19.7em;
+}
+
+.about_delivery {
+    margin-top: 20.3em;
+}
+
+.text_how_it_works {
+    font-size: 1.8em;
+    text-align: center;
+    font-style: normal;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--text-red-color);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.998px;
+    letter-spacing: 1.08px;
+}
+
+.text_our_smile {
+    text-align: center;
+    font-size: 4.4em;
+    margin-top: 0.2em;
+    margin-bottom: 0;
+    line-height: 1.2em;
+    color: var(--text-color);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.text_lorem_ispum {
+    text-align: center;
+    font-size: 1.2em;
+    font-style: normal;
+    margin-top: 1.8em;
+    color: var(--text-gray-color);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.006px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10em;
+    flex-wrap: wrap;
+}
+
+.picture_steps {
+    display: block;
+    margin: 0 auto;
+}
+
+.text_in_steps {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 2.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40.012px;
+    width: 324px;
+    margin-bottom: 0.1em;
+    margin-top: 1.2em;
+}
+
+.text_after_main_text_in_steps {
+    color: var(--text-gray-color);
+    text-align: center;
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.006px;
+    width: 344px;
+    margin-top: 0.8em;
+}
+
+.rectangle_with_buttons_in_steps {
+    margin-top: 2.7em;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    margin-bottom: 19em;
+    padding-bottom: 0;
+}

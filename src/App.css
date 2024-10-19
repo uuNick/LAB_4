@@ -1,3 +1,33 @@
+:root {
+  --bg-color-section: black;
+  --bg-color-section-2: #FAFAFA;
+  --bg-comments-color: #DADADA;
+  --bg-color: #FFF;
+  --svg-logo-text-color: #121212;
+  --text-color: #121212;
+  --text-red-color: #FF5634;
+  --text-gray-color: #656565;
+  --white-color: #FFF;
+  --horisontal-line: #CACACA;
+}
+
+button {
+  padding: 1em 2em;
+  margin: 0;
+  border: 1px solid #ededed;
+  background-color: var(--white-color);
+  /* background-color: transparent; */
+  border-radius: .75rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.6em;
+  color: var(--text-color);
+  transform-origin: center center;
+  transition: 240ms ease-out;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .App {
   text-align: center;
 }
@@ -28,11 +58,3 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
