@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../../images/logo/logo.svg';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = ({ links }) => {
     return (
@@ -16,7 +17,7 @@ const Header = ({ links }) => {
                         <ul className="menu_list">
                             {links.map((link, index) => (
                                 <li className='menu_item' key={index}>
-                                    <a className="menu_link" href={link.href}>{link.text}</a>
+                                    <Link to={link.path} className="menu_link">{link.text}</Link>
                                 </li>
                             ))}
                         </ul>

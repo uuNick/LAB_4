@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../../images/logo/logo.svg'
 import data from '../../data/cities.json'
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = ({ main_pages_links, additional_pages_links }) => {
@@ -25,7 +26,7 @@ const Footer = ({ main_pages_links, additional_pages_links }) => {
                 <div className="footer_menu">
                     <h4 className="h4_item_in_footer">Меню</h4>
                     {main_pages_links.map((link, index) => (
-                        <p key={index} className="item_in_footer"><a className="link_item_in_footer" href={link.href}>{link.text}</a></p>
+                        <p key={index} className="item_in_footer"><Link to={link.path} className="link_item_in_footer" >{link.text}</Link></p>
                     ))}
                 </div>
                 <div className="utility_pages_footer">
@@ -38,7 +39,7 @@ const Footer = ({ main_pages_links, additional_pages_links }) => {
                     <h4 className="h4_item_in_footer">Доступно в</h4>
                     <div className="icons_available_in_1">
                         {firstTwo.map(item => (
-                            <div className="one_icon_div_in_footer">
+                            <div key = {item.id} className="one_icon_div_in_footer">
                                 <img className="photo_icon_city_in_footer" src={require(`../../images/${item.img}`)} alt={`City ${item.title}`} />
                                 <p className="icon_names_in_footer">{item.title}</p>
                             </div>
@@ -46,7 +47,7 @@ const Footer = ({ main_pages_links, additional_pages_links }) => {
                     </div>
                     <div className="icons_available_in_2">
                         {lastTwo.map(item => (
-                            <div className="one_icon_div_in_footer">
+                            <div key = {item.id} className="one_icon_div_in_footer">
                                 <img className="photo_icon_city_in_footer" src={require(`../../images/${item.img}`)} alt={`City ${item.title}`} />
                                 <p className="icon_names_in_footer">{item.title}</p>
                             </div>
