@@ -1,7 +1,12 @@
 import React from 'react';
+import Catalog_header from '../components/Catalog_Header/Catalog_header'
 
 const Catalog = () => {
-  return <h1>Каталог</h1>;
+  return (
+    <div>
+      <Catalog_header/>
+    </div>
+  )
 };
 
 export default Catalog;
