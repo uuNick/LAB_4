@@ -1,8 +1,9 @@
 import React from 'react';
 import './Catalog_header.css';
 import { Link } from 'react-router-dom';
+import Catalog from '../../pages/Catalog';
 
-const Discounts = () => {
+const Catalog_header = () => {
     return (
         <header>
             <div className="header_wrapper">
@@ -47,4 +48,4 @@ const Discounts = () => {
     )
 };
 
-export default Discounts;
+export default Catalog_header;

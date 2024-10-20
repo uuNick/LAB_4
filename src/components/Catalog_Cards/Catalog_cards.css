@@ -1,0 +1,110 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    margin-top: 60px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 225px);
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
+    justify-items: center;
+    column-gap: 30px;
+    row-gap: 40px;
+    margin: 60px auto;
+}
+
+.card {
+    width: 225px;
+    height: 380px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    transition: 0.2s;
+    position: relative;
+    background-color: var(--bg-comments-color);
+}
+
+.card_top {
+    flex: 0 0 220px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card_image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card_image>img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.2s;
+}
+
+.card_bottom {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding: 10px;
+}
+
+.card_prices {
+    display: flex;
+    flex: 0 0 20%;
+}
+
+.card_price--common {
+    font-weight: 400;
+    font-size: 18px;
+    color: #606060;
+}
+
+.text_price {
+    font-weight: 400;
+    font-size: 20px;
+    color: #767272;
+    margin-right: 105px;
+}
+
+.card_price::after {
+    content: "р";
+    margin-left: 4px;
+    position: relative;
+}
+
+.card_title {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: #414141;
+}
+
+.card_add {
+    padding: 10px 20px;
+    margin: 0;
+    margin-top: auto;
+    border: 1px solid #ededed;
+    border-radius: .75rem;
+    display: block;
+    font-size: 17px;
+    color: black;
+    transform-origin: center center;
+    transition: 0.2s;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 400;
+}
+
