@@ -1,0 +1,33 @@
+.modal{
+    text-align: center;
+}
+
+.info_after_logo{
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 0.5em;
+}
+
+.common_inf{
+    font-size: 1.5em;
+    max-width: 45em;
+    margin: auto;
+}
+
+.contact_info{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 1.5em;
+}
+
+.icon{
+    width: 7em;
+    height: auto;
+}
+
+.contact_icons{
+    margin: 1em 10em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

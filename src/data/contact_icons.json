@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "title": "YouTube",
+        "img": "contacts/YouTube.png"
+    },
+    {
+        "id": 2,
+        "title": "Instagram",
+        "img": "contacts/Inst.png"
+    },
+    {
+        "id": 3,
+        "title": "Telegram",
+        "img": "contacts/Tg.png"
+    },
+    {
+        "id": 4,
+        "title": "Vk",
+        "img": "contacts/Vk.png"
+    },
+    {
+        "id": 5,
+        "title": "Facebook",
+        "img": "contacts/Facebook.png"
+    }
+]

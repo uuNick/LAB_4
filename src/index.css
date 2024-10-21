@@ -43,6 +43,12 @@ button {
   white-space: nowrap;
 }
 
+button:hover {
+  transform: scale(1.05);
+  background-color: var(--text-red-color);
+  color: var(--white-color);
+}
+
 main {
   margin: 0 auto;
   -webkit-box-flex: 1;

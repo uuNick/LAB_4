@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../../images/logo/logo.svg'
 import data from '../../data/cities.json'
 import { Link } from 'react-router-dom';
+import About_popup from '../About_Popup/About_popup';
 import './Footer.css';
 
 const Footer = ({ main_pages_links, additional_pages_links }) => {
@@ -28,6 +29,7 @@ const Footer = ({ main_pages_links, additional_pages_links }) => {
                     {main_pages_links.map((link, index) => (
                         <p key={index} className="item_in_footer"><Link to={link.path} className="link_item_in_footer" >{link.text}</Link></p>
                     ))}
+                    <About_popup/>
                 </div>
                 <div className="utility_pages_footer">
                     <h4 className="h4_item_in_footer">Полезные страницы</h4>
