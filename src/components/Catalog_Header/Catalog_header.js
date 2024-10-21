@@ -1,20 +1,13 @@
 import React from 'react';
 import './Catalog_header.css';
 import { Link } from 'react-router-dom';
-import Catalog from '../../pages/Catalog';
 
-const Catalog_header = () => {
+const Catalog_header = ({ BasketCount }) => {
     return (
         <header>
             <div className="header_wrapper">
                 <div className="drop_down">
                     <button className="drop_button">Каталог</button>
-                    {/* <div className="drop_down_content">
-                        <p className="drop_down_text ddt_1">Все</p>
-                        <p className="drop_down_text ddt_2">Бургеры</p>
-                        <p className="drop_down_text ddt_3">Напитки</p>
-                        <p className="drop_down_text ddt_4">Пиццы</p>
-                    </div> */}
                 </div>
                 <div className="input-wrapper">
                     <div className="input-group">
@@ -32,10 +25,12 @@ const Catalog_header = () => {
                 </div>
                 <div className="header_icons">
                     <div className="basket_inner">
-                        <svg width="38" height="38" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M.75-.02a.75.75 0 100 1.5l.408-.006 1.606 1.281 1.839 6.881L4.237 12a2 2 0 102.188 2.722l5.705.028a2 2 0 100-1.5l-5.705-.028a2.007 2.007 0 00-.722-.898l.438-2.632 7.933.027 1.91-7.715H4.227L1.683-.026 1.68-.02v-.005L.75-.02z" fill="#000"></path>
-                        </svg>
-                        <span className="basket_count">0</span>
+                        <Link to="/basket">
+                            <svg width="38" height="38" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M.75-.02a.75.75 0 100 1.5l.408-.006 1.606 1.281 1.839 6.881L4.237 12a2 2 0 102.188 2.722l5.705.028a2 2 0 100-1.5l-5.705-.028a2.007 2.007 0 00-.722-.898l.438-2.632 7.933.027 1.91-7.715H4.227L1.683-.026 1.68-.02v-.005L.75-.02z" fill="#000"></path>
+                            </svg>
+                            <span className="basket_count">{BasketCount}</span>
+                        </Link>
                     </div>
                     <Link to="/">
                         <svg className="home_icon" width="45" height="45" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">

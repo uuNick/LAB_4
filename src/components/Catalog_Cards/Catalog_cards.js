@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Catalog_cards.css';
 import data from '../../data/products.json'
 
-const Catalog_cards = () => {
+const Catalog_cards = ({ addToBasket, removeFromBasket, BasketItems }) => {
+    const isInBasket = (id) => BasketItems.some(item => item.id === id);
+
+
     return (
         <div className="wrapper">
             <div className="cards">
@@ -18,18 +21,15 @@ const Catalog_cards = () => {
                                 <div className="card_price card_price--common"><span className="text_price">Цена</span>{item.price}</div>
                             </div>
                             <a className="card_title">{item.title}</a>
-                            <button className="card_add">В корзину</button>
+                            <button className="card_add" onClick={() => {
+                                isInBasket(item.id) ? removeFromBasket(item.id) : addToBasket(item);
+                            }}
+                            >
+                                {isInBasket(item.id) ? 'Удалить из корзины' : 'В корзину'}</button>
                         </div>
                     </div>
                 ))}
             </div>
-            {/* <div className="numeration">
-                <button type="button" className="btn_num btn_first_items">«</button>
-                <button type="button" className="btn_num previous_items">&lt;</button>
-                <span className="number_num">1</span>
-                <button type="button" className="btn_num btn_next_items">&gt;</button>
-                <button type="button" className="btn_num btn_last_items">»</button>
-            </div> */}
         </div>
     )
 };
