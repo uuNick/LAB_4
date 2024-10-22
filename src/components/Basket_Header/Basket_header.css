@@ -1,0 +1,37 @@
+.wrapper_h {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 850px;
+}
+
+h1 {
+    padding: 20px;
+    color: var(--text-color);
+}
+
+.header_icons {
+    /* width: 100px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.basket_inner {
+    position: relative;
+}
+
+.basket_count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    border-radius: 50%;
+    background-color: #ff3b30;
+    color: white;
+    padding: 3px;
+    text-align: center;
+    min-width: 25px;
+}
+
