@@ -1,13 +1,20 @@
 import React from 'react';
 import Logo from '../../images/logo/logo.svg'
 import data from '../../data/cities.json'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import About_popup from '../About_Popup/About_popup';
 import './Footer.css';
 
 const Footer = ({ main_pages_links, additional_pages_links }) => {
     const firstTwo = data.slice(0, 2);
     const lastTwo = data.slice(-2);
+
+    const navigate = useNavigate();
+
+    const goToCatalog = () => {
+        navigate('/catalog');
+    };
+
     return (
         <footer>
             <div className="div_deliver_x_dowload">
@@ -18,7 +25,7 @@ const Footer = ({ main_pages_links, additional_pages_links }) => {
                     <p className="discript_deliver_x">В Delivery X мы гордимся тем, что предоставляем бесперебойную и эффективную логистику предприятиям любого размера.</p>
                 </div>
                 <div className="rectangle_with_buttons_in_deliver_x">
-                    <button className="button_dowload_for_ios">Каталог</button>
+                    <button onClick={goToCatalog} className="button_dowload_for_ios">Каталог</button>
                 </div>
             </div>
             <div className="horisontal_line">

@@ -9,6 +9,7 @@ header {
 
 .header_wrapper {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     height: 12em;
@@ -35,6 +36,7 @@ header {
 .header_buttons{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .authorization_button {
@@ -56,4 +58,32 @@ header {
 .menu{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+    .header_wrapper {
+        margin: 0 20px;
+        justify-content: center;
+    }
+
+    .menu{
+        justify-content: center;
+    }
+
+    header{
+        height: 25em;
+    }
+
+    .menu_list{
+        margin: 2em;
+    }
+
+    .header_buttons{
+        justify-content: center;
+    }
+
+    .authorization_button{
+        margin-bottom: 1em;
+    }
 }

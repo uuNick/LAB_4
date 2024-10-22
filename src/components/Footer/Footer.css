@@ -10,6 +10,7 @@ footer {
     display: flex;
     justify-content: space-between;
     margin-bottom: 6.7em;
+    flex-wrap: wrap;
 }
 
 .logo_deliver_x_with_description {
@@ -37,7 +38,7 @@ footer {
     justify-content: center;
     gap: 16px;
     align-items: center;
-    width: 485px;
+    max-width: 485px;
 }
 
 div.horisontal_line {
@@ -83,7 +84,7 @@ h4 {
     flex-direction: column;
 }
 
-.one_icon_div_in_footer{
+.one_icon_div_in_footer {
     display: flex;
     align-items: center;
 }
@@ -101,12 +102,14 @@ h4 {
     width: 10em;
 }
 
-.icons_available_in_1{
+.icons_available_in_1 {
     display: flex;
+    flex-wrap: wrap;
 }
 
-.icons_available_in_2{
+.icons_available_in_2 {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .black_name_in_footer {
@@ -131,4 +134,45 @@ h4 {
     font-weight: 400;
     line-height: 30.006px;
     margin: 0 .5em;
+}
+
+@media (max-width: 1200px) {
+    .main_div_footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5em;
+        text-align: center;
+        gap: 7em;
+    }
+
+    .icons_available_in_2, .icons_available_in_1{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .main_div_footer {
+        gap: 3em;
+        margin-bottom: 5em;
+    }
+
+    .photo_icon_city_in_footer {
+        width: 64px;
+        margin: 0;
+    }
+
+    .h4_item_in_footer {
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 1.4em;
+    }
+
+    .item_in_footer {
+        font-size: 14px;
+    }
+
+    .icon_names_in_footer {
+        font-size: 14px;
+    }
 }

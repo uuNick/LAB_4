@@ -1,8 +1,16 @@
 import React from 'react';
 import './Main_section.css';
 import data from '../../data/cards.json'
+import { useNavigate } from 'react-router-dom';
 
 const Main_section = () => {
+
+    const navigate = useNavigate();
+
+    const goToCatalog = () => {
+        navigate('/catalog');
+    };
+
     return (
         <section className="section_about">
             <div className="about_delivery">
@@ -20,7 +28,7 @@ const Main_section = () => {
                 ))}
             </div>
             <div className="rectangle_with_buttons_in_steps flex">
-                <button className="button_dowload_app">Каталог</button>
+                <button onClick={goToCatalog} className="button_dowload_app">Каталог</button>
             </div>
             <div className="horisontal_line">
             </div>

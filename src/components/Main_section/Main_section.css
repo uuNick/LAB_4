@@ -84,3 +84,55 @@
     margin-bottom: 19em;
     padding-bottom: 0;
 }
+
+@media screen and (min-width: 300px) and (max-width: 1439px) {
+    .steps {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .steps {
+        margin-top: 5em;
+    }
+}
+
+@media (max-width: 500px) {
+    .text_how_it_works {
+        margin-bottom: 20px;
+        font-size: 1.4em;
+    }
+
+    .text_main_discript {
+        font-size: 25px;
+        margin: 0;
+        line-height: 35px;
+    }
+
+    .text_after_main_discript {
+        font-size: 14px;
+    }
+
+    .div_in_step {
+        text-align: center;
+    }
+
+    .picture_steps {
+        width: 150px;
+    }
+
+    .text_in_steps {
+        font-size: 20px;
+        width: auto;
+        margin-top: 5px;
+        text-wrap: wrap;
+    }
+
+    .text_after_main_text_in_steps {
+        font-size: 14px;
+    }
+
+    .text_after_main_text_in_steps {
+        width: auto;
+    }
+}
