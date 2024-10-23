@@ -26,17 +26,6 @@ const Basket_items = ({ BasketItems, removeFromBasket }) => {
         });
     };
 
-    // function Counter() {
-    //     const [quantities1, setQuantities1] = useState(1)
-    //     return (
-    //         <div className="cart_block-btns">
-    //             <button onClick={() => setQuantities1(quantities1 - 1)}>-</button>
-    //             <input type="number" className="cart_count" value={quantities1} />
-    //             <button onClick={() => setQuantities1(quantities1 + 1)}>+</button>
-    //         </div>
-    //     )
-    // }
-
     return (
         <>
             {BasketItems.length === 0 ? (

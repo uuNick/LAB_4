@@ -1,17 +1,18 @@
 import React from 'react';
 import './Catalog_header.css';
 import { Link } from 'react-router-dom';
+import Input from '@mui/material/Input';
 
 const Catalog_header = ({ BasketCount }) => {
     return (
         <header>
-            <div className="header_wrapper">
+            <div className="header_wrapper_c">
                 <div className="drop_down">
                     <button className="drop_button">Каталог</button>
                 </div>
                 <div className="input-wrapper">
                     <div className="input-group">
-                        <input type="text" placeholder="Введите текст" className="input-field" />
+                        <Input type="text" placeholder="Введите текст" />
                         <button className="submit-button"><svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>

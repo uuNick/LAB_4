@@ -1,4 +1,4 @@
-.header_wrapper {
+.header_wrapper_c {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -7,6 +7,7 @@
     max-width: 122.2em;
     margin: 0 auto;
     padding: 0 4em;
+    flex-wrap: wrap;
 }
 
 .drop_down {
