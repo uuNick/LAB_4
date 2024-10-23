@@ -4,6 +4,7 @@ import Catalog from './pages/Catalog';
 import Discounts from './pages/Discounts';
 import Main from './pages/Main';
 import Basket from './pages/Basket';
+import NotFound404 from './pages/NotFound404';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/catalog" element={<Catalog addToBasket={addToBasket} removeFromBasket={removeFromBasket} BasketItems={BasketItems} />} />
         <Route path="/discounts" element={<Discounts />} />
         <Route path="/basket" element={<Basket BasketItems={BasketItems} removeFromBasket={removeFromBasket}/>} />
+        <Route path="*" element={<NotFound404/>}/>
       </Routes>
     </Router>
   );
