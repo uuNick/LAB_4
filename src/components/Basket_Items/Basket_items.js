@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Basket_items.css';
 import { Link } from 'react-router-dom';
-
+import Slider from '@mui/material/Slider';
+import { Typography } from '@mui/material';
 
 const Basket_items = ({ BasketItems, removeFromBasket }) => {
     const [quantities, setQuantities] = useState(
@@ -11,19 +12,11 @@ const Basket_items = ({ BasketItems, removeFromBasket }) => {
         }, {})
     );
 
-    const handleIncrease = (id) => {
-        setQuantities((prev) => {
-            const newQuantity = Math.min(prev[id] + 1, 100);
-            return { ...prev, [id]: newQuantity };
-        });
-    };
-
-
-    const handleDecrease = (id) => {
-        setQuantities((prev) => {
-            const newQuantity = Math.max(prev[id] - 1, 1);
-            return { ...prev, [id]: newQuantity };
-        });
+    const handleQuantityChange = (id, newQuantity) => {
+        setQuantities((prev) => ({
+            ...prev,
+            [id]: newQuantity,
+        }));
     };
 
     return (
@@ -41,11 +34,16 @@ const Basket_items = ({ BasketItems, removeFromBasket }) => {
                                 <img src={require(`../../images/${item.img}`)} alt={`Product ${item.title}`} />
                             </div>
                             <div className="cart_title">{item.title}</div>
-                            {/* <Counter></Counter> */}
                             <div className="cart_block-btns">
-                                <button onClick={() => handleDecrease(item.id)}>-</button>
-                                <input readOnly type="number" className="cart_count" value = {quantities[item.id]}/>
-                                    <button onClick={() => handleIncrease(item.id)}>+</button>
+                                <Typography gutterBottom>Количество: {quantities[item.id]}</Typography>
+                                <Slider
+                                    value={quantities[item.id]}
+                                    onChange={(event, newValue) => handleQuantityChange(item.id, newValue)}
+                                    aria-labelledby="quantity-slider"
+                                    min={1}
+                                    max={100}
+                                    valueLabelDisplay="auto"
+                                />
                             </div>
                             <div className="cart_price">
                                 <span className="cart_total_price">{(item.price * quantities[item.id]).toFixed(2)}</span>р
