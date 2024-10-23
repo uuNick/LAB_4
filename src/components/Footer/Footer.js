@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../../images/logo/logo.svg'
 import data from '../../data/cities.json'
 import { Link, useNavigate } from 'react-router-dom';
 import About_popup from '../About_Popup/About_popup';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import './Footer.css';
 
 const Footer = ({ main_pages_links, additional_pages_links }) => {
@@ -13,6 +15,14 @@ const Footer = ({ main_pages_links, additional_pages_links }) => {
 
     const goToCatalog = () => {
         navigate('/catalog');
+    };
+
+    const [anchorEl, setAnchorEl] = useState(null);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
     };
 
     return (
@@ -32,23 +42,33 @@ const Footer = ({ main_pages_links, additional_pages_links }) => {
             </div>
             <div className="main_div_footer">
                 <div className="footer_menu">
-                    <h4 className="h4_item_in_footer">Меню</h4>
-                    {main_pages_links.map((link, index) => (
-                        <p key={index} className="item_in_footer"><Link to={link.path} className="link_item_in_footer" >{link.text}</Link></p>
-                    ))}
-                    <About_popup/>
+                    <h4 className="h4_item_in_footer" onClick={handleClick}>Меню</h4>
+                    <Menu
+                        anchorEl={anchorEl}
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        {main_pages_links.map((link, index) => (
+                            <MenuItem key={index} onClick={handleClose}>
+                                <Link to={link.path} className="link_item_in_footer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    {link.text}
+                                </Link>
+                            </MenuItem>
+                        ))}
+                    </Menu>
                 </div>
                 <div className="utility_pages_footer">
                     <h4 className="h4_item_in_footer">Полезные страницы</h4>
                     {additional_pages_links.map((link, index) => (
                         <p key={index} className="item_in_footer"><a className="link_item_in_footer" target="_blank" href={link.href}>{link.text}</a></p>
                     ))}
+                    <About_popup />
                 </div>
                 <div className="available_in_footer flex align-center">
                     <h4 className="h4_item_in_footer">Доступно в</h4>
                     <div className="icons_available_in_1">
                         {firstTwo.map(item => (
-                            <div key = {item.id} className="one_icon_div_in_footer">
+                            <div key={item.id} className="one_icon_div_in_footer">
                                 <img className="photo_icon_city_in_footer" src={require(`../../images/${item.img}`)} alt={`City ${item.title}`} />
                                 <p className="icon_names_in_footer">{item.title}</p>
                             </div>
@@ -56,7 +76,7 @@ const Footer = ({ main_pages_links, additional_pages_links }) => {
                     </div>
                     <div className="icons_available_in_2">
                         {lastTwo.map(item => (
-                            <div key = {item.id} className="one_icon_div_in_footer">
+                            <div key={item.id} className="one_icon_div_in_footer">
                                 <img className="photo_icon_city_in_footer" src={require(`../../images/${item.img}`)} alt={`City ${item.title}`} />
                                 <p className="icon_names_in_footer">{item.title}</p>
                             </div>
