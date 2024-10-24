@@ -2,6 +2,13 @@ import React from 'react';
 import './Main_section.css';
 import data from '../../data/cards.json'
 import { useNavigate } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+
+
 
 const Main_section = () => {
 
@@ -18,17 +25,28 @@ const Main_section = () => {
                 <p className="text_main_discript text_our_smile">Наш простой, но эффективный</p>
                 <p className="text_after_main_discript text_lorem_ispum">Наш оптимизированный процесс доставки гарантирует, что ваш заказ будет доставлен вам быстро и удобно</p>
             </div>
-            <div className="steps flex justify-content-space-between">
+            <div className="steps">
                 {data.map(item => (
-                    <div key = {item.id} className="div_in_step">
-                        <img className="picture_steps" src = {require(`../../images/${item.img}`)} alt = {`Card ${item.id}`}/>
-                        <p className="text_in_steps" >{item.title}</p>
-                        <p className="text_after_main_text_in_steps">{item.description}</p>
-                    </div>
+                    <Card sx={{ maxWidth: 345 }}>
+                        <CardMedia
+                            component="img"
+                            height="auto"
+                            image={require(`../../images/${item.img}`)}
+                            alt={`Card ${item.title}`}
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="div" sx = {{textAlign: 'center'}}>
+                                {item.title}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.secondary', textAlign: 'center', fontSize: '1.8em', marginTop: '0.8em'}}>
+                                {item.description}
+                            </Typography>
+                        </CardContent>
+                    </Card>
                 ))}
             </div>
-            <div className="rectangle_with_buttons_in_steps flex">
-                <button onClick={goToCatalog} className="button_dowload_app">Каталог</button>
+            <div className="rectangle_with_buttons_in_steps">
+                <Button variant="outlined" color='primary.contrastText' onClick={goToCatalog}>Каталог</Button>
             </div>
             <div className="horisontal_line">
             </div>

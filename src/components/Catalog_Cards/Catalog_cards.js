@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Catalog_cards.css';
 import data from '../../data/products.json'
+import Button from '@mui/material/Button';
 
 const Catalog_cards = ({ addToBasket, removeFromBasket, BasketItems }) => {
     const isInBasket = (id) => BasketItems.some(item => item.id === id);
@@ -21,11 +22,11 @@ const Catalog_cards = ({ addToBasket, removeFromBasket, BasketItems }) => {
                                 <div className="card_price card_price--common"><span className="text_price">Цена</span>{item.price}</div>
                             </div>
                             <a className="card_title">{item.title}</a>
-                            <button className="card_add" onClick={() => {
+                            <Button variant="outlined" color='primary.contrastText' sx={{padding: '10px 20px', margin: '0', marginTop: 'auto'}} onClick={() => {
                                 isInBasket(item.id) ? removeFromBasket(item.id) : addToBasket(item);
                             }}
                             >
-                                {isInBasket(item.id) ? 'Удалить из корзины' : 'В корзину'}</button>
+                                {isInBasket(item.id) ? 'Удалить из корзины' : 'В корзину'}</Button>
                         </div>
                     </div>
                 ))}

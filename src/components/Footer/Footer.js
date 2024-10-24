@@ -6,6 +6,7 @@ import About_popup from '../About_Popup/About_popup';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import './Footer.css';
+import Button from '@mui/material/Button';
 
 const Footer = ({ main_pages_links, additional_pages_links }) => {
     const firstTwo = data.slice(0, 2);
@@ -35,7 +36,7 @@ const Footer = ({ main_pages_links, additional_pages_links }) => {
                     <p className="discript_deliver_x">В Delivery X мы гордимся тем, что предоставляем бесперебойную и эффективную логистику предприятиям любого размера.</p>
                 </div>
                 <div className="rectangle_with_buttons_in_deliver_x">
-                    <button onClick={goToCatalog} className="button_dowload_for_ios">Каталог</button>
+                    <Button variant="outlined" color='primary.contrastText' onClick={goToCatalog}>Каталог</Button>
                 </div>
             </div>
             <div className="horisontal_line">

@@ -27,7 +27,6 @@
     border-radius: 4px;
     transition: 0.2s;
     position: relative;
-    background-color: var(--bg-comments-color);
 }
 
 .card_top {

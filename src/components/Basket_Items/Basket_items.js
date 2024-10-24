@@ -43,6 +43,7 @@ const Basket_items = ({ BasketItems, removeFromBasket }) => {
                                     min={1}
                                     max={100}
                                     valueLabelDisplay="auto"
+                                    color='primary'
                                 />
                             </div>
                             <div className="cart_price">

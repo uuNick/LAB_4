@@ -26,29 +26,6 @@ code {
   --horisontal-line: #CACACA;
 }
 
-button {
-  padding: 1em 2em;
-  margin: 0;
-  border: 1px solid #ededed;
-  background-color: var(--white-color);
-  /* background-color: transparent; */
-  border-radius: .75rem;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1.6em;
-  color: var(--text-color);
-  transform-origin: center center;
-  transition: 240ms ease-out;
-  text-align: center;
-  white-space: nowrap;
-}
-
-button:hover {
-  transform: scale(1.05);
-  background-color: var(--text-red-color);
-  color: var(--white-color);
-}
-
 main {
   margin: 0 auto;
   -webkit-box-flex: 1;
