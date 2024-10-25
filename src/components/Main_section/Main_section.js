@@ -27,7 +27,7 @@ const Main_section = () => {
             </div>
             <div className="steps">
                 {data.map(item => (
-                    <Card sx={{ maxWidth: 345 }}>
+                    <Card key = {item.id} sx={{ maxWidth: 345 }}>
                         <CardMedia
                             component="img"
                             height="auto"
