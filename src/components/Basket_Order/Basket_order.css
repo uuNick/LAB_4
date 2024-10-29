@@ -1,0 +1,5 @@
+.result_order{
+    display: flex;
+    margin: 0 auto;
+    max-width: 20em;
+}

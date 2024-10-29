@@ -7,10 +7,10 @@ const theme = createTheme({
             light: '#f75e25',
             dark: '#f34723',
             contrastText: '#121212',
-        }
-        // secondary: {
-        //   main: '#dc004e',
-        // },
+        },
+        secondary: {
+           main: '#000000',
+        },
         // custom: {
         //   main: '#f44336',
         // },

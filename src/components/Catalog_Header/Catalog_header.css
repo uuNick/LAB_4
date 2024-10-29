@@ -22,12 +22,12 @@
     color: var(--text-color);
 }
 
-.drop_button::after {
+/* .drop_button::after {
     content: '\2228';
     margin-left: 5px;
     font-size: 12px;
     transition: transform 0.3s ease;
-}
+} */
 
 .drop_down_content {
     display: none;

@@ -4,6 +4,7 @@ import Logo from '../../images/logo/logo.svg';
 import data from '../../data/contact_icons.json'
 import './About_popup.css'
 import 'reactjs-popup/dist/index.css';
+import Button from '@mui/material/Button';
 
 const About_popup = () => {
     return (
@@ -23,9 +24,9 @@ const About_popup = () => {
                             <a href='#' key = {item.id}><img className='icon' src = {require(`../../images/${item.img}`)} alt = {`Contact icon ${item.id}`}/></a>
                         ))}
                     </div>
-                    <button className="close" onClick={close}>
+                    <Button variant='outlined' color='primary.contrastText' onClick={close}>
                         Закрыть
-                    </button>
+                    </Button>
                 </div>
             )}
         </Popup>

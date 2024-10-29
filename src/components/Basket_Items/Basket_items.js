@@ -4,20 +4,7 @@ import { Link } from 'react-router-dom';
 import Slider from '@mui/material/Slider';
 import { Typography } from '@mui/material';
 
-const Basket_items = ({ BasketItems, removeFromBasket }) => {
-    const [quantities, setQuantities] = useState(
-        BasketItems.reduce((acc, item) => {
-            acc[item.id] = 1;
-            return acc;
-        }, {})
-    );
-
-    const handleQuantityChange = (id, newQuantity) => {
-        setQuantities((prev) => ({
-            ...prev,
-            [id]: newQuantity,
-        }));
-    };
+const Basket_items = ({ BasketItems, removeFromBasket, handleQuantityChange, quantities}) => {
 
     return (
         <>
