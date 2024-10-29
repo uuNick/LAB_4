@@ -46,13 +46,6 @@
     margin-top: 20px;
 }
 
-.input-group {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 400px;
-}
-
 .input-field {
     padding: 10px 15px;
     padding-right: 100px;
@@ -107,4 +100,19 @@
     padding: 3px;
     text-align: center;
     min-width: 25px;
+}
+
+@media (max-width: 600px) {
+    .drop_down{
+        order: 2;
+    }
+
+    .input-group{
+        order: 1;
+        max-width: 500px;
+    }
+
+    .header_icons{
+        order: 3;
+    }
 }

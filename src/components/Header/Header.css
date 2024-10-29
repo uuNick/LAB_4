@@ -9,7 +9,6 @@ header {
 
 .header_wrapper {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     height: 12em;
@@ -61,29 +60,16 @@ header {
     flex-wrap: wrap;
 }
 
+.burger_menu{
+    display: none;
+}
+
 @media (max-width: 700px) {
-    .header_wrapper {
-        margin: 0 20px;
-        justify-content: center;
-    }
-
     .menu{
-        justify-content: center;
+        display: none;
     }
-
-    header{
-        height: 25em;
-    }
-
-    .menu_list{
-        margin: 2em;
-    }
-
-    .header_buttons{
-        justify-content: center;
-    }
-
-    .authorization_button{
-        margin-bottom: 1em;
+    
+    .burger_menu{
+        display: block;
     }
 }

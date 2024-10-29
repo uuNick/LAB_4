@@ -7,7 +7,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 
 const About_popup = () => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
