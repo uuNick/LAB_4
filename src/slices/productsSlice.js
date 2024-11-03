@@ -1,28 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
+import data from '../data/products.json';
+
+const initialState = {
+  products: data,
+  //status: 'idle',
+  error: null,
+  filters: {
+    type: 'all',
+    price: null,
+  },
+};
 
 const productsSlice = createSlice({
-    name: 'products',
-    initialState: {
-        items: [],
-        error: null,
+  name: 'products',
+  initialState,
+  reducers: {
+    setFilters: (state, action) => {
+      state.filters = action.payload;
     },
-    reducers: {
-        setProducts: (state, action) => {
-            state.items = action.payload;
-        },
-        addProduct: (state, action) => {
-            if (!state.items.find(product => product.id === action.payload.id)) {
-                state.items.push(action.payload);
-            } else {
-                state.error = 'Товар уже добавлен в каталог';
-            }
-        },
-        removeProduct: (state, action) => {
-            state.items = state.items.filter(product => product.id !== action.payload);
-        },
+    setError: (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload;
     },
+  },
 });
 
-export const { setProducts, addProduct, removeProduct } = productsSlice.actions;
-
+export const { setFilters, setError } = productsSlice.actions;
 export default productsSlice.reducer;

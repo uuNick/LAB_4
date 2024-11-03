@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Catalog_cards.css';
 import data from '../../data/products.json'
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilters } from '../../slices/productsSlice';
+import { addItem, removeItem } from '../../slices/basketSlice';
 import Button from '@mui/material/Button';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -8,27 +11,54 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-const Catalog_cards = ({ addToBasket, removeFromBasket, BasketItems, searchValue, setFilterType, filterType, sortOrder, setSortOrder }) => {
-    const isInBasket = (id) => BasketItems.some(item => item.id === id);
-    const filteredItemsOnTitle = data.filter(item =>
-        item.title.toLowerCase().includes(searchValue?.toLowerCase() || ''));
+const Catalog_cards = ({ searchValue, sortOrder, setSortOrder }) => {
 
-    const filteredItemsOnType = filterType
-        ? filteredItemsOnTitle.filter(item => item.type === filterType)
-        : filteredItemsOnTitle;
+    const dispatch = useDispatch();
+    const { products, filters } = useSelector((state) => state.products);
+    const busketItems = useSelector((state) => state.basket.basketItems)
+    // useEffect(() => {
+    //     dispatch(fetchProducts());
+    // }, [dispatch]);
 
-    const sortedProducts = [...filteredItemsOnType].sort((a, b) => {
-        console.log(sortOrder)
-        const priceA = parseFloat(a.price); // Преобразование строки в число
-        const priceB = parseFloat(b.price); // Преобразование строки в число
+    const addToBasket = (product) => {
+        dispatch(addItem(product));
+    };
 
-        if (sortOrder == "asc") {
-            return priceA - priceB;
-        } else if (sortOrder == "desc") {
-            return priceB - priceA;
-        }
-        return 0;
-    });
+    const removeFromBasket = (product) => {
+        dispatch(removeItem(product))
+    }
+
+    // const filterChange = (e) => {
+    //     const { name, value } = e.target;
+    //     dispatch(setFilters({ ...filters, [name]: value }));
+    // };
+
+    // const filteredProducts = products.filter((product) => {
+    //     if (filters.type !== 'all' && product.type !== filters.type) return false;
+    //     // if (filters.price && product.price > filters.price) return false;
+    //     return true;
+    // });
+
+    const isInBasket = (id) => busketItems.some(item => item.id === id);
+    // const filteredItemsOnTitle = data.filter(item =>
+    //     item.title.toLowerCase().includes(searchValue?.toLowerCase() || ''));
+
+    // const filteredItemsOnType = filterType
+    //     ? filteredItemsOnTitle.filter(item => item.type === filterType)
+    //     : filteredItemsOnTitle;
+
+    // const sortedProducts = [...filteredItemsOnType].sort((a, b) => {
+    //     console.log(sortOrder)
+    //     const priceA = parseFloat(a.price); // Преобразование строки в число
+    //     const priceB = parseFloat(b.price); // Преобразование строки в число
+
+    //     if (sortOrder == "asc") {
+    //         return priceA - priceB;
+    //     } else if (sortOrder == "desc") {
+    //         return priceB - priceA;
+    //     }
+    //     return 0;
+    // });
 
     return (
         <div className="wrapper">
@@ -38,7 +68,7 @@ const Catalog_cards = ({ addToBasket, removeFromBasket, BasketItems, searchValue
                     <RadioGroup
                         defaultValue=""
                         name="products_group"
-                        onChange={setFilterType}
+                    //onChange={setFilterType}
                     >
                         <FormControlLabel value="" control={<Radio />} label="Все" />
                         <FormControlLabel value="burger" control={<Radio />} label="Бургеры" />
@@ -51,7 +81,7 @@ const Catalog_cards = ({ addToBasket, removeFromBasket, BasketItems, searchValue
                     <RadioGroup
                         defaultValue="none"
                         name="products_price"
-                        onChange={setSortOrder}
+                    //onChange={setSortOrder}
                     >
                         <FormControlLabel value="none" control={<Radio />} label="По умолчанию" />
                         <FormControlLabel value="asc" control={<Radio />} label="Сначала дешёвые" />
@@ -60,7 +90,7 @@ const Catalog_cards = ({ addToBasket, removeFromBasket, BasketItems, searchValue
                 </FormControl>
             </div>
             <div className="cards">
-                {sortedProducts.map(item => (
+                {products.map(item => (
                     <div key={item.id} className="card">
                         <div className="card_top">
                             <a className="card_image">
@@ -73,10 +103,12 @@ const Catalog_cards = ({ addToBasket, removeFromBasket, BasketItems, searchValue
                             </div>
                             <a className="card_title">{item.title}</a>
                             <Button variant="outlined" color='primary.contrastText' sx={{ padding: '10px 20px', margin: '0', marginTop: 'auto' }} onClick={() => {
-                                isInBasket(item.id) ? removeFromBasket(item.id) : addToBasket(item);
+                                isInBasket(item.id) ? removeFromBasket(item) : addToBasket(item);
+                                console.log(busketItems);
                             }}
                             >
-                                {isInBasket(item.id) ? 'Удалить из корзины' : 'В корзину'}</Button>
+                                {isInBasket(item.id) ? 'Удалить из корзины' : 'В корзину'}
+                            </Button>
                         </div>
                     </div>
                 ))}

@@ -17,7 +17,7 @@ const Catalog = ({ addToBasket, removeFromBasket, BasketItems }) => {
 
   return (
     <>
-      <Catalog_header BasketCount = {BasketItems.length} setSearchValue={setSearchValue}/>
+      <Catalog_header setSearchValue={setSearchValue}/>
       <Catalog_cards 
         addToBasket={addToBasket} 
         removeFromBasket={removeFromBasket} 

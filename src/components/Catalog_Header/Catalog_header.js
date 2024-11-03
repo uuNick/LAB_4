@@ -1,13 +1,17 @@
 import React from 'react';
 import './Catalog_header.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import data from '../../data/products.json'
 
-const Catalog_header = ({ BasketCount, setSearchValue}) => {
+const Catalog_header = ({setSearchValue}) => {
+
+    const totalCount = useSelector((state) => state.basket.totalCount);
+
     const setNewValue = (event, newValue) => {
         setSearchValue(newValue);
       };
@@ -34,7 +38,7 @@ const Catalog_header = ({ BasketCount, setSearchValue}) => {
                     <div className="basket_inner">
                         <Link to="/basket">
                             <ShoppingCartIcon color="secondary" sx={{fontSize:"5em"}}></ShoppingCartIcon>
-                            <span className="basket_count">{BasketCount}</span>
+                            <span className="basket_count">{totalCount}</span>
                         </Link>
                     </div>
                     <Link to="/">

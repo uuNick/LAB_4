@@ -1,36 +1,58 @@
+// import { createSlice } from '@reduxjs/toolkit';
+
+// const initialState = {
+//   items: [],
+// };
+
+// const basketSlice = createSlice({
+//   name: 'basket',
+//   initialState,
+//   reducers: {
+//     addItem: (state, action) => {
+//       state.items.push(action.payload);
+//     },
+//     removeItem: (state, action) => {
+//       state.items = state.items.filter((item) => item.id !== action.payload.id);
+//     },
+//   },
+// });
+
+// export const { addItem, removeItem } = basketSlice.actions;
+// export default basketSlice.reducer;
+
 import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+    basketItems: [],
+    totalCount: 0,
+};
 
 const basketSlice = createSlice({
     name: 'basket',
-    initialState: {
-        items: [],
-        error: null,
-    },
+    initialState,
     reducers: {
-        // addToBasket: (state, action) => {
-        //     const existingItem = state.items.find(item => item.id === action.payload.id);
-        //     if (existingItem) {
-        //         existingItem.quantity += 1; // Увеличиваем количество
-        //     } else {
-        //         state.items.push({ ...action.payload, quantity: 1 });
-        //     }
-        // },
-        removeFromBasket: (state, action) => {
-            state.items = state.items.filter(item => item.id !== action.payload);
+        addItem: (state, action) => {
+            state.basketItems.push(action.payload);
+            state.totalCount++;
         },
-        updateQuantity: (state, action) => {
-            const existingItem = state.items.find(item => item.id === action.payload.id);
-            if (existingItem) {
-                if (action.payload.quantity <= 0) {
-                    state.items = state.items.filter(item => item.id !== action.payload.id);
-                } else {
-                    existingItem.quantity = action.payload.quantity;
-                }
+        removeItem: (state, action) => {
+            state.basketItems = state.basketItems.filter((item) => item.id !== action.payload.id);
+            state.totalCount--;
+        },
+        updateItemQuantity: (state, action) => {
+            const { itemId, newQuantity } = action.payload;
+            if (state.basketItems[itemId]) {
+                const diff = newQuantity - state.basketItems[itemId].quantity;
+                state.basketItems[itemId].quantity = newQuantity;
+                state.totalCount += diff;
             }
+        },
+        clearBusket: (state) => {
+            state.basketItems = {};
+            state.totalCount = 0;
         },
     },
 });
 
-export const { removeFromBasket, updateQuantity } = basketSlice.actions;
-
+export const { addItem, removeItem, updateItemQuantity, clearBusket } = basketSlice.actions;
 export default basketSlice.reducer;
