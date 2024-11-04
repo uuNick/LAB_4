@@ -8,7 +8,6 @@ import { Typography } from '@mui/material';
 
 const Basket_items = () => {
     const dispatch = useDispatch();
-    const { products, filters } = useSelector((state) => state.products);
     const busketItems = useSelector((state) => state.basket.basketItems)
 
     const removeFromBasket = (product) => {

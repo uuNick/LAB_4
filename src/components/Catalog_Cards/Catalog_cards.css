@@ -10,11 +10,16 @@
 
 .filter_product_category{
     margin-top: 6em;
+    display: flex;
+    flex-direction: column;
+}
+
+.no_products{
+    font-size: 1.6em;
 }
 
 .cards {
     display: flex;
-    /* grid-template-columns: repeat(auto-fill, 225px); */
     max-width: 23em;
     flex-direction: row;
     flex-wrap: wrap;

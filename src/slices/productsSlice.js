@@ -3,27 +3,26 @@ import data from '../data/products.json';
 
 const initialState = {
   products: data,
-  //status: 'idle',
-  error: null,
-  filters: {
-    type: 'all',
-    price: null,
-  },
+  category: '',
+  sortOrder: 'none',
+  searchQuery: '',
 };
 
 const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setFilters: (state, action) => {
-      state.filters = action.payload;
+    setCategory: (state, action) => {
+      state.category = action.payload;
     },
-    setError: (state, action) => {
-      state.status = 'failed';
-      state.error = action.payload;
+    setSortOrder: (state, action) => {
+      state.sortOrder = action.payload;
+    },
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload;
     },
   },
 });
 
-export const { setFilters, setError } = productsSlice.actions;
+export const { setCategory, setSortOrder, setSearchQuery } = productsSlice.actions;
 export default productsSlice.reducer;

@@ -7,25 +7,14 @@ import Basket from './pages/Basket';
 import NotFound404 from './pages/NotFound404';
 
 function App() {
-
-  const [BasketItems, setBasketItems] = useState([]);
-
-  const addToBasket = (item) => {
-    setBasketItems((prevItems) => [...prevItems, item]);
-  };
-
-  const removeFromBasket = (id) => {
-    setBasketItems((prevItems) => prevItems.filter(item => item.id !== id));
-  };
-
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/catalog" element={<Catalog addToBasket={addToBasket} removeFromBasket={removeFromBasket} BasketItems={BasketItems} />} />
+        <Route path="/catalog" element={<Catalog />} />
         <Route path="/discounts" element={<Discounts />} />
-        <Route path="/basket" element={<Basket BasketItems={BasketItems} removeFromBasket={removeFromBasket}/>} />
-        <Route path="*" element={<NotFound404/>}/>
+        <Route path="/basket" element={<Basket />} />
+        <Route path="*" element={<NotFound404 />} />
       </Routes>
     </Router>
   );

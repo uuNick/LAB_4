@@ -1,5 +1,6 @@
 import React from 'react';
 import './Basket_order.css';
+import { useSelector } from 'react-redux';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,7 +10,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 
-const Basket_order = ({ BasketItems, quantities }) => {
+const Basket_order = () => {
+
+    const busketItems = useSelector((state) => state.basket.basketItems);
+
     return (
         <>
             <div className="result_order">
@@ -25,16 +29,15 @@ const Basket_order = ({ BasketItems, quantities }) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {BasketItems.map((item) => (
+                        {busketItems.map((item) => (
                             <TableRow
                                 key={item.id}
-                                // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell align="center" component="th" scope="row">
                                     {item.title}
                                 </TableCell>
-                                <TableCell align="center">{quantities[item.id]}</TableCell>
-                                <TableCell align="center">{(item.price * quantities[item.id]).toFixed(2)}</TableCell>
+                                <TableCell align="center">1</TableCell>
+                                <TableCell align="center">{item.price}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
