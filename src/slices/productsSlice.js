@@ -6,6 +6,8 @@ const initialState = {
   category: '',
   sortOrder: 'none',
   searchQuery: '',
+  status: 'idle',
+  error: null,
 };
 
 const productsSlice = createSlice({
@@ -21,8 +23,11 @@ const productsSlice = createSlice({
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload;
     },
+    createProduct: (state, action) => {
+      state.products.push(action.payload);
+    },
   },
 });
 
-export const { setCategory, setSortOrder, setSearchQuery } = productsSlice.actions;
+export const { setCategory, setSortOrder, setSearchQuery, createProduct } = productsSlice.actions;
 export default productsSlice.reducer;

@@ -6,7 +6,7 @@ import Footer from '../components/Footer/Footer';
 const Main = () => {
     const links = [
         { path: '/catalog', text: 'Каталог' },
-        { path: '/discounts', text: 'Скидки' },
+        { path: '/create_product_card', text: 'Создать' },
     ];
     const additional_pages_links = [
         { href: 'mailto:nikitasidarenko@gmail.com', text: 'nikitasidarenko@gmail.com' },

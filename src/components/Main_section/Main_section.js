@@ -2,6 +2,7 @@ import React from 'react';
 import './Main_section.css';
 import data from '../../data/cards.json'
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -12,9 +13,12 @@ import Button from '@mui/material/Button';
 
 const Main_section = () => {
 
+    const { products } = useSelector((state) => state.products);
+
     const navigate = useNavigate();
 
     const goToCatalog = () => {
+        console.log(products)
         navigate('/catalog');
     };
 

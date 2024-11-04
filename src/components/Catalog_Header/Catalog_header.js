@@ -16,7 +16,6 @@ const Catalog_header = () => {
     const cardTitles = data.map(card => card.title);
 
     const setSearchValue = (event, newValue) => {
-        console.log(newValue);
         dispatch(setSearchQuery(newValue || ''));
     };
 

@@ -3,12 +3,7 @@ import './Catalog_cards.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCategory, setSortOrder } from '../../slices/productsSlice';
 import { addItem, removeItem } from '../../slices/basketSlice';
-import Button from '@mui/material/Button';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import { Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
 
 const Catalog_cards = () => {
 
@@ -29,7 +24,7 @@ const Catalog_cards = () => {
     const filteredItemsOnTitle = products.filter(item =>
         item.title.toLowerCase().includes(searchQuery?.toLowerCase() || ''));
 
-    const showFilters = filteredItemsOnTitle.length >= 3; // Условие для показа фильтров
+    const showFilters = filteredItemsOnTitle.length >= 3;
 
     const filteredProducts = filteredItemsOnTitle.filter((product) => {
         return category === '' || product.type === category;
@@ -39,14 +34,12 @@ const Catalog_cards = () => {
         const priceA = parseFloat(a.price);
         const priceB = parseFloat(b.price);
 
-        console.log(searchQuery);
-
         if (sortOrder === 'asc') {
             return priceA - priceB;
         } else if (sortOrder === 'desc') {
             return priceB - priceA;
         } else {
-            return 0; // По умолчанию
+            return 0;
         }
     });
 
@@ -100,7 +93,6 @@ const Catalog_cards = () => {
                                 <a className="card_title">{item.title}</a>
                                 <Button variant="outlined" color='primary.contrastText' sx={{ padding: '10px 20px', margin: '0', marginTop: 'auto' }} onClick={() => {
                                     isInBasket(item.id) ? removeFromBasket(item) : addToBasket(item);
-                                    console.log(busketItems);
                                 }}
                                 >
                                     {isInBasket(item.id) ? 'Удалить из корзины' : 'В корзину'}
