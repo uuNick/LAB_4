@@ -26,8 +26,18 @@ const productsSlice = createSlice({
     createProduct: (state, action) => {
       state.products.push(action.payload);
     },
+    updateProduct: (state, action) => {
+      const { id, updatedProduct } = action.payload;
+      const updatedProducts = state.products.map((product) =>
+        product.id === id ? { ...product, ...updatedProduct } : product
+      );
+      state.products = updatedProducts; // Изменение происходит напрямую в state, так как createSlice оптимизирует это
+    },
+    deleteProduct: (state, action) => {
+      state.products = state.products.filter((product) => product.id !== action.payload);
+    },
   },
 });
 
-export const { setCategory, setSortOrder, setSearchQuery, createProduct } = productsSlice.actions;
+export const { setCategory, setSortOrder, setSearchQuery, createProduct, updateProduct, deleteProduct } = productsSlice.actions;
 export default productsSlice.reducer;

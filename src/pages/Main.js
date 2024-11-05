@@ -7,6 +7,7 @@ const Main = () => {
     const links = [
         { path: '/catalog', text: 'Каталог' },
         { path: '/create_product_card', text: 'Создать' },
+        { path: '/redact_product_card', text: 'Редактировать'},
     ];
     const additional_pages_links = [
         { href: 'mailto:nikitasidarenko@gmail.com', text: 'nikitasidarenko@gmail.com' },
