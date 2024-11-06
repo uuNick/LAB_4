@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Slider from '@mui/material/Slider';
 import { Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 const Basket_items = () => {
     const dispatch = useDispatch();
@@ -14,12 +15,14 @@ const Basket_items = () => {
         dispatch(removeItem(product))
     }
 
+    const { t } = useTranslation();
+
     return (
         <>
             {busketItems.length === 0 ? (
                 <div className="error">
-                    <p>В корзине нет товаров!</p>
-                    <p><Link className="link_back" to="/catalog">Перейти к списку товаров!</Link></p>
+                    <p>{t("no_items")}</p>
+                    <p><Link className="link_back" to="/catalog">{t("go_to_catalog")}</Link></p>
                 </div>
             ) : (
                 <div className="cart">

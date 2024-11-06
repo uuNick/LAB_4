@@ -7,9 +7,11 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import { useTranslation } from 'react-i18next';
 
 const Header = ({ links }) => {
     const [open, setOpen] = React.useState(false);
+    const { t } = useTranslation();
 
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
@@ -24,13 +26,12 @@ const Header = ({ links }) => {
                     </ListItem>
                 ))}
                 <ListItem sx={{ justifyContent: "center" }}>
-                    <Button variant='outlined' color='primary.contrastText'>Войти</Button>
+                    <Button variant='outlined' color='primary.contrastText'>{t("sign_in")}</Button>
                 </ListItem>
                 <ListItem sx={{ justifyContent: "center" }}>
-                    <Button variant='outlined' color='primary.contrastText' sx={{ padding: '1em 1.5em', margin: '0 0.2em' }}>Зарегистрироваться</Button>
+                    <Button variant='outlined' color='primary.contrastText' sx={{ padding: '1em 1.5em', margin: '0 0.2em' }}>{t("sign_up")}</Button>
                 </ListItem>
             </List>
-
         </Box>
     );
     return (
@@ -52,12 +53,12 @@ const Header = ({ links }) => {
                         </ul>
                     </nav>
                     <div className="header_buttons">
-                        <Button variant='outlined' color='primary.contrastText'>Войти</Button>
-                        <Button variant='outlined' color='primary.contrastText' sx={{ padding: '1em 1.5em', margin: '0 0.2em' }}>Зарегистрироваться</Button>
+                        <Button variant='outlined' color='primary.contrastText'>{t("sign_in")}</Button>
+                        <Button variant='outlined' color='primary.contrastText' sx={{ padding: '1em 1.5em', margin: '0 0.2em' }}>{t("sign_up")}</Button>
                     </div>
                 </div>
                 <div className='burger_menu'>
-                    <Button onClick={toggleDrawer(true)} variant='outlined' color='primary.contrastText'>Меню</Button>
+                    <Button onClick={toggleDrawer(true)} variant='outlined' color='primary.contrastText'>{t("menu")}</Button>
                     <Drawer open={open} onClose={toggleDrawer(false)}>
                         {DrawerList}
                     </Drawer>

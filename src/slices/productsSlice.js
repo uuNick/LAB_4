@@ -31,7 +31,7 @@ const productsSlice = createSlice({
       const updatedProducts = state.products.map((product) =>
         product.id === id ? { ...product, ...updatedProduct } : product
       );
-      state.products = updatedProducts; // Изменение происходит напрямую в state, так как createSlice оптимизирует это
+      state.products = updatedProducts; 
     },
     deleteProduct: (state, action) => {
       state.products = state.products.filter((product) => product.id !== action.payload);

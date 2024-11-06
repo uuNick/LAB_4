@@ -5,7 +5,7 @@ import { createProduct } from '../slices/productsSlice';
 import { TextField, Button, Typography, Box, Alert, Snackbar} from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-
+import { useTranslation } from 'react-i18next';
 
 const validationSchema = yup.object({
     title: yup.string().required('Название обязательно'),
@@ -21,6 +21,7 @@ const CreateProductCard = () => {
     const [open, setOpen] = useState(false);
     const [severity, setSeverity] = useState('success');
     const [message, setMessage] = useState('');
+    const { t } = useTranslation();
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -53,10 +54,11 @@ const CreateProductCard = () => {
             try {
                 const valuesWithIndex = { id: products.length + 1, ...values };
                 dispatch(createProduct(valuesWithIndex));
-                handleCreateProductSuccess('Карточка продукта успешно создана!');
+                handleCreateProductSuccess(t("cr_success"));
                 resetForm();
             } catch (e) {
-                handleCreateProductError(`Ошибка при создании карточки: ${e.message}`);
+                const er_text = t("er_success");
+                handleCreateProductError(`er_text ${e.message}`);
             }
         },
     });
@@ -79,14 +81,14 @@ const CreateProductCard = () => {
                     textAlign: 'center',
                 }}>
                 <Typography variant="h5" gutterBottom>
-                    Создание карточки продукта
+                    {t("create_product")}
                 </Typography>
                 <TextField
                     fullWidth
                     margin="normal"
                     id="title"
                     name="title"
-                    label="Название"
+                    label={t("name")}
                     value={formik.values.title}
                     onChange={formik.handleChange}
                     error={formik.touched.title && Boolean(formik.errors.title)}
@@ -97,7 +99,7 @@ const CreateProductCard = () => {
                     margin="normal"
                     id="price"
                     name="price"
-                    label="Цена"
+                    label={t("price")}
                     type="number"
                     value={formik.values.price}
                     onChange={formik.handleChange}
@@ -109,7 +111,7 @@ const CreateProductCard = () => {
                     margin="normal"
                     id="img"
                     name="img"
-                    label="URL изображения"
+                    label={t("url")}
                     value={formik.values.img}
                     onChange={formik.handleChange}
                     error={formik.touched.img && Boolean(formik.errors.img)}
@@ -120,7 +122,7 @@ const CreateProductCard = () => {
                     margin="normal"
                     id="type"
                     name="type"
-                    label="Категория"
+                    label={t("category")}
                     value={formik.values.type}
                     onChange={formik.handleChange}
                     error={formik.touched.type && Boolean(formik.errors.type)}
@@ -128,10 +130,10 @@ const CreateProductCard = () => {
                 />
                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                     <Button variant="outlined" color='primary.contrastText' type="submit">
-                        Создать
+                        {t("create")}
                     </Button>
                     <Button variant="outlined" color='primary.contrastText' onClick={goToMainPage}>
-                        На главную
+                        {t("main")}
                     </Button>
                 </Box>
             </Box>

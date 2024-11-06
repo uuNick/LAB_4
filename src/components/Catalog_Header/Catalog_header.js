@@ -8,12 +8,14 @@ import Autocomplete from '@mui/material/Autocomplete';
 import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import data from '../../data/products.json'
+import { useTranslation } from 'react-i18next';
 
 const Catalog_header = () => {
     const dispatch = useDispatch();
 
     const totalCount = useSelector((state) => state.basket.totalCount);
     const cardTitles = data.map(card => card.title);
+    const { t } = useTranslation();
 
     const setSearchValue = (event, newValue) => {
         dispatch(setSearchQuery(newValue || ''));
@@ -23,7 +25,7 @@ const Catalog_header = () => {
         <header>
             <div className="header_wrapper_c">
                 <div className="drop_down">
-                    <button className="drop_button">Каталог</button>
+                    <button className="drop_button">{t("catalog")}</button>
                 </div>
                 <div className="input-wrapper">
                     <div className="input-group">
@@ -32,7 +34,7 @@ const Catalog_header = () => {
                             options={cardTitles}
                             onChange={setSearchValue}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <TextField {...params} label="Поиск продуктов" />}
+                            renderInput={(params) => <TextField {...params} label={t("search")} />}
                         />
                     </div>
                 </div>

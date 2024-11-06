@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { TextField, Button, Box, Typography, Alert, Snackbar } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const RedactProductCard = () => {
 
@@ -12,10 +13,11 @@ const RedactProductCard = () => {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.products.products);
     const formRef = useRef(null);
-    const [selectedProduct, setSelectedProduct] = useState(null); // Состояние для хранения выбранного продукта
+    const [selectedProduct, setSelectedProduct] = useState(null);
     const [open, setOpen] = useState(false);
     const [severity, setSeverity] = useState('success');
     const [message, setMessage] = useState('');
+    const { t } = useTranslation();
 
     const validationSchema = yup.object({
         title: yup.string().required('Название обязательно'),
@@ -84,9 +86,11 @@ const RedactProductCard = () => {
                         boxShadow: "1px 2px 4px rgba(0, 0, 0, 0.1)",
                         borderRadius: "4px",
                         transition: "0.2s",
+                        textAlign: "center"
                     }}>
-                        <Typography variant="body1">{c.title}</Typography>
-                        <Button variant="outlined" color='primary.contrastText' onClick={() => handleEditClick(c)}>Редактировать</Button>
+                        <Typography variant="body1">{t(`product_${c.id}`)}</Typography>
+                        <Box component="img" src={require(`../images/${c.img}`)} alt="My Image" sx={{ width: '100%', height: 'auto' }} />
+                        <Button variant="outlined" color='primary.contrastText' onClick={() => handleEditClick(c)}>{t("redact")}</Button>
                     </Box>
                 ))}
             </Box>
@@ -97,14 +101,14 @@ const RedactProductCard = () => {
                     margin: "10em auto ",
                 }}>
                 <Typography variant="h5" gutterBottom>
-                    Редактирование продукта
+                    {t("redacting_product")}
                 </Typography>
                 <TextField
                     fullWidth
                     margin="normal"
                     id="title"
                     name="title"
-                    label="Название"
+                    label={t("name")}
                     value={formik.values.title}
                     onChange={formik.handleChange}
                     error={formik.touched.title && Boolean(formik.errors.title)}
@@ -115,7 +119,7 @@ const RedactProductCard = () => {
                     margin="normal"
                     id="price"
                     name="price"
-                    label="Цена"
+                    label={t("price")}
                     type="number"
                     value={formik.values.price}
                     onChange={formik.handleChange}
@@ -127,7 +131,7 @@ const RedactProductCard = () => {
                     margin="normal"
                     id="img"
                     name="img"
-                    label="URL изображения"
+                    label={t("url")}
                     value={formik.values.img}
                     onChange={formik.handleChange}
                     error={formik.touched.img && Boolean(formik.errors.img)}
@@ -138,7 +142,7 @@ const RedactProductCard = () => {
                     margin="normal"
                     id="type"
                     name="type"
-                    label="Категория"
+                    label={t("category")}
                     value={formik.values.type}
                     onChange={formik.handleChange}
                     error={formik.touched.type && Boolean(formik.errors.type)}
@@ -146,10 +150,10 @@ const RedactProductCard = () => {
                 />
                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
                     <Button variant="outlined" color='primary.contrastText' type="submit">
-                        Сохранить
+                        {t("save")}
                     </Button>
                     <Button variant="outlined" color='primary.contrastText' onClick={goToMainPage}>
-                        На главную
+                        {t("main")}
                     </Button>
                 </Box>
             </Box>

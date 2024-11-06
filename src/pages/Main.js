@@ -2,12 +2,16 @@ import React from 'react';
 import Header from '../components/Header/Header';
 import Main_section from '../components/Main_section/Main_section';
 import Footer from '../components/Footer/Footer';
+import { useTranslation } from 'react-i18next';
 
 const Main = () => {
+
+    const { t } = useTranslation();
+
     const links = [
-        { path: '/catalog', text: 'Каталог' },
-        { path: '/create_product_card', text: 'Создать' },
-        { path: '/redact_product_card', text: 'Редактировать'},
+        { path: '/catalog', text: t("catalog") },
+        { path: '/create_product_card', text: t("create") },
+        { path: '/redact_product_card', text: t("redact")},
     ];
     const additional_pages_links = [
         { href: 'mailto:nikitasidarenko@gmail.com', text: 'nikitasidarenko@gmail.com' },

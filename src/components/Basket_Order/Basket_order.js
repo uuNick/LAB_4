@@ -8,24 +8,26 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
+import { useTranslation } from 'react-i18next';
 
 const Basket_order = () => {
 
     const busketItems = useSelector((state) => state.basket.basketItems);
+    
+    const { t } = useTranslation();
 
     return (
         <>
             <div className="result_order">
-                <h1>Итоговый заказ</h1>
+                <h1>{t("final_order")}</h1>
             </div>
             <TableContainer component={Paper} sx={{ maxWidth: '65em', margin: "0 auto" }}>
                 <Table sx={{ maxWidth: '65em' }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="center">Название</TableCell>
-                            <TableCell align="center">Количество</TableCell>
-                            <TableCell align="center">Итоговая цена</TableCell>
+                            <TableCell align="center">{t("name")}</TableCell>
+                            <TableCell align="center">{t("amount")}</TableCell>
+                            <TableCell align="center">{t("final_products")}</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
